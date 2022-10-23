@@ -5,7 +5,10 @@ from django.http import HttpResponse
 
 
 def projects(request):
-    return  render(request, "projects/projects.html")
+    page = "Projects"
+    number = 10
+    context = {'page': page, 'number': number}
+    return  render(request, "projects/projects.html", context)
 
 def project(request, pk):
     return  render(request, "projects/single-project.html")
