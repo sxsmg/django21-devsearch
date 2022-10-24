@@ -4,23 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Project
 
-projectsList = [
-    {
-        'id':'1',
-        'title':'Ecommerce Website',
-        'description':'Fully Functional Ecommerce website'
-    },
-    {
-        'id':'2',
-        'title':'Portfolio Website',
-        'description':'This website represents my portfolio'
-    },
-    {
-        'id':'3',
-        'title':'Social Network',
-        'description':'End to end fully featured social network'
-    },
-]
+
 
 def projects(request):
     projects = Project.objects.all()
@@ -31,3 +15,7 @@ def project(request, pk):
     projectObj = Project.objects.get(id=pk)
     
     return  render(request, "projects/single-project.html", {'project':projectObj })
+
+def createProject(request):
+    context = {}
+    return render(request, "projects/project_form.html", context)
