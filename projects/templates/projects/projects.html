@@ -11,6 +11,8 @@
         <th>Votes</th>
         <th>Ratio</th>
         <th></th>
+        <th></th>
+        <th></th>
         {% for project in projects %}
             <tr>
                 <td>{{project.id}}</td>
@@ -18,6 +20,8 @@
                 <td>{{project.vote_total}}</td>
                 <td>{{project.vote_ratio}}</td>
                 <td>{{project.created}}</td>
+                <td><a href="{% url 'update-project' project.id %}">Edit</a></td>
+                <td><a href="{% url 'delete-project' project.id %}">Delete</a></td>
                 <td><a href="{% url 'project' project.id %}">View</a></td>
             </tr>
         {% endfor %}
