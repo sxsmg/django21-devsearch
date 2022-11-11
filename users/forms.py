@@ -8,4 +8,5 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ['first_name', 'email', 'username', 'password1', 'password2']
         labels = {
             'first_name': 'Name',
+            
         }
