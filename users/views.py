@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile 
+from .utils import searchProfiles
 from django.contrib import messages
 from .forms import CustomUserCreationForm, ProfileForm, SkillForm
 from django.urls import conf
@@ -66,12 +67,7 @@ def registerUser(request):
 
 
 def profiles(request):
-    search_query = ''
-
-    if request.GET.get('search_query'):
-        search_query = request.GET.get('search_query')
-
-    profiles = Profile.objects.filter(Q(name__icontains=search_query) | Q(short_intro__icontains=search_query))
+    profiles, search_query = searchProfiles(request)
     context = {'profiles': profiles, 'search_query': search_query}
     return render(request, 'users/profiles.html', context)
 
