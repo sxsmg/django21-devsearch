@@ -1,5 +1,5 @@
 from django.urls import path 
-from .views import profiles, userProfile, loginUser, logoutUser, userAccount, registerUser
+from .views import editAccount,profiles, userProfile, loginUser, logoutUser, userAccount, registerUser
 
 urlpatterns = [
 
@@ -10,5 +10,7 @@ urlpatterns = [
     path('', profiles, name="profiles"),
     path('profile/<str:pk>/', userProfile, name="user-profile"),
     path('account/', userAccount,  name='account'),
+    
+    path('edit-account/', editAccount, name="edit-account"),
     ]
    
