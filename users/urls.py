@@ -9,6 +9,6 @@ urlpatterns = [
 
     path('', profiles, name="profiles"),
     path('profile/<str:pk>/', userProfile, name="user-profile"),
-    path('account/, userAccount', userAccount, name='account'),
+    path('account/', userAccount,  name='account'),
     ]
    
